@@ -110,4 +110,119 @@
                 text-shadow: 0.05em 0 0 var(--color-neon-cyan), -0.05em -0.025em 0 var(--color-neon-magenta);
             }
             100% {
-                text-shadow: 0.05em 0 0 var(--color-neon-cyan), -0.05em -0.025em 0 var(--color-neon-magenta
+                text-shadow: 0.05em 0 0 var(--color-neon-cyan), -0.05em -0.025em 0 var(--color-neon-magenta);
+            }
+        }
+
+        @keyframes neonGlow {
+            from {
+                text-shadow: 0 0 10px var(--color-neon-cyan), 0 0 20px var(--color-neon-cyan);
+            }
+            to {
+                text-shadow: 0 0 20px var(--color-neon-magenta), 0 0 30px var(--color-neon-magenta);
+            }
+        }
+        
+        /* Estilo para el resto del texto */
+        p, li {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Estilos de las listas (sin viñetas, con espaciado) */
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        li {
+            margin: 10px;
+            padding: 10px 20px;
+            border: 1px solid var(--color-neon-cyan);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: var(--color-neon-cyan);
+            color: var(--color-dark-bg);
+            box-shadow: 0 0 15px var(--color-neon-cyan);
+            transform: scale(1.05);
+        }
+        
+        /* Estilo para los subtítulos de sección */
+        h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-top: 40px;
+            text-transform: uppercase;
+            color: var(--color-neon-cyan);
+        }
+        
+        /* Línea de división de estilo futurista */
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-neon-magenta), transparent);
+            margin: 40px 0;
+            box-shadow: 0 0 10px var(--color-neon-magenta);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="portfolio-container">
+        <h1>Americus Amadeus Dodge</h1>
+        <h2>Portafolio de Ciberseguridad</h2>
+
+        <p>Administro SQL, LINUX, Analizadores de protocolos de redes SNIFFERS) y trabajo para mantener los principios básicos de seguridad Cibernética, entre ellos, la **confidencialidad**, **integridad**, y **disponibilidad** (CID), así como una sólida formación en ética dentro de las organizaciones.</p>
+
+        <hr>
+
+        <h3>Inventario de Fortalezas</h3>
+        <ul>
+            <li>Percepción</li>
+            <li>Pensamiento Crítico</li>
+            <li>Intuición</li>
+            <li>Introversión / Pensamiento Abstracto</li>
+            <li>Inteligencia Emocional</li>
+            <li>Colaboración</li>
+            <li>Resolución de problemas</li>
+            <li>Comunicación</li>
+            <li>Uso de la herramienta SIEM (Security Information and Event Management) y otras herramientas para identificar y mitigar amenazas, riesgos y/o vulnerabilidades.</li>
+        </ul>
+
+        <hr>
+
+        <h3>Valores</h3>
+        <ul>
+            <li>Honestidad</li>
+            <li>Paciencia</li>
+            <li>Disciplina</li>
+            <li>Generosidad</li>
+            <li>Diligencia</li>
+        </ul>
+
+        <hr>
+
+        <h3>Intereses en el Campo de la Ciberseguridad</h3>
+        <p>Desarrollar soluciones efectivas y métodos de Identificación contra amenazas de seguridad cibernética y soluciones que puedan impactar de forma positiva en una organización y en las personas a las que esta sirve.</p>
+
+        <hr>
+
+        <h3>Targets e Intereses</h3>
+        <p>Colaborar con todo tipo de organizaciones en general del Sector Terciario, Gobierno y entusiastas de la ciberseguridad en general.</p>
+
+        <hr>
+
+        <h3>Motivación</h3>
+        <p>Alinear una ética y valores propios a la misión y la visión de mis empleadores para enriquecer su organización y aportar valor a sus proyectos, buscando un beneficio común de la experiencia obtenida.</p>
+
+    </div>
+</body>
+</html>

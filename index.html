@@ -3,67 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Americus 1  Amadeus Dodge - Portafolio de Ciberseguridad</title>
+    <title>Americus Amadeus Dodge - Portafolio de Ciberseguridad 💻</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* Estilos generales del cuerpo y el contenedor principal */
+        :root {
+            --color-neon-cyan: #00FFFF;
+            --color-neon-magenta: #FF00FF;
+            --color-dark-bg: #0A0A0A;
+            --color-text-light: #E0E0E0;
+        }
+
         body {
-            font-family: serif;
+            font-family: 'Rajdhani', sans-serif;
             text-align: center;
-            background-color: #208080; /* Turquesa oscuro mate */
-            color: white;
-            margin: 50px;
+            background-color: var(--color-dark-bg);
+            color: var(--color-text-light);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.05em; /* Espaciado sutil para un look "tech" */
         }
+        
+        /* Animación de fondo: un sutil resplandor que se mueve */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--color-neon-cyan), var(--color-neon-magenta), var(--color-dark-bg));
+            background-size: 400% 400%;
+            animation: moveGradient 15s ease infinite;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        @keyframes moveGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Contenedor principal para centrar y dar margen al contenido */
+        .portfolio-container {
+            width: 90%;
+            max-width: 900px;
+            padding: 40px 20px;
+            background: rgba(15, 15, 15, 0.7);
+            border: 2px solid var(--color-neon-cyan);
+            box-shadow: 0 0 20px var(--color-neon-cyan);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        /* Estilo de los títulos principales y secundarios */
+        h1, h2 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            text-shadow: 0 0 10px var(--color-neon-cyan), 0 0 20px var(--color-neon-cyan);
+            animation: neonGlow 1.5s ease-in-out infinite alternate;
+        }
+        
         h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 3.5rem;
+            margin-bottom: 5px;
+            color: var(--color-neon-magenta);
+            animation: glitch 1.5s infinite;
         }
-        p {
-            font-size: 1.2rem;
-            line-height: 1.5;
+
+        h2 {
+            font-size: 2rem;
+            margin-top: 0;
+            color: var(--color-neon-cyan);
         }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            margin: 10px 0;
-        }
-    </style>
-</head>
-<body>
-    <h1>Americus Amadeus Dodge</h1>
-    <h2>Portafolio de Ciberseguridad</h2>
-
-    <p>Administro SQL, LINUX, Analizadores de protocolos de redes SNIFFERS) y trabajo para mantener los principios básicos de seguridad Cibernética, entre ellos, la confidencialidad, integridad, y disponibilidad ( CID ) así como una sólida formación en ética dentro de las organizaciónes.</p>
-
-    <h3>Inventario de Fortalezas</h3>
-    <ul>
-        <li>Percepción</li>
-        <li>Pensamiento Crítico</li>
-        <li>Intuición</li>
-        <li>Introversión / Pensamiento Abstracto</li>
-        <li>Inteligencia Emocional</li>
-        <li>Colaboración</li>
-        <li>Resolución de problemas</li>
-        <li>Comunicación</li>
-        <li>Uso de la herramienta SIEM (Security Information and Event Management) y otras herramientas para identificar y mitigar amenazas, riesgos y/o vulnerabilidades.</li>
-    </ul>
-
-    <h3>Valores</h3>
-    <ul>
-        <li>Honestidad</li>
-        <li>Paciencia</li>
-        <li>Disciplina</li>
-        <li>Generosidad</li>
-        <li>Diligencia</li>
-    </ul>
-
-    <h3>Intereses en el Campo de la Ciberseguridad</h3>
-    <p>Desarrollar soluciones efectivas y métodos de Identificación contra amenazas de seguridad cibernética y soluciones que puedan impactar de forma positiva en una organización y en las personas a las que esta sirve.</p>
-
-    <h3>Targets e Intereses</h3>
-    <p>Colaborar con todo tipo de organizaciones en general del Sector Terciario, Gobierno y entusiastas de la ciberseguridad en general.</p>
-
-    <h3>Motivación</h3>
-    <p>Alinear una ética y valores propios a la misión y la visión de mis empleadores para enriquecer su organización y aportar valor a sus proyectos, buscando un beneficio común de la experiencia obtenida.</p>
-</body>
-</html>
+        
+        /* Efecto de "glitch" en el título principal */
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 var(--color-neon-cyan), -0.05em -0.025em 0 var(--color-neon-magenta);
+            }
+            14% {
+                text-shadow: 0.05em 0 0 var(--color-neon-cyan), -0.05em -0.025em 0 var(--color-neon-magenta);
+            }
+            15% {
+                text-shadow: -0.05em -0.025em 0 var(--color-neon-cyan), 0.05em 0 0 var(--color-neon-magenta);
+            }
+            49% {
+                text-shadow: -0.05em -0.025em 0 var(--color-neon-cyan), 0.05em 0 0 var(--color-neon-magenta);
+            }
+            50% {
+                text-shadow: -0.05em -0.025em 0 var(--color-neon-cyan), 0.05em 0 0 var(--color-neon-magenta);
+            }
+            51% {
+                text-shadow: 0.05em 0 0 var(--color-neon-cyan), -0.05em -0.025em 0 var(--color-neon-magenta);
+            }
+            100% {
+                text-shadow: 0.05em 0 0 var(--color-neon-cyan), -0.05em -0.025em 0 var(--color-neon-magenta

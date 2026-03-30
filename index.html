@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
+            --color-neon-cyan: #00FFFF;
+            --color-neon-magenta: #FF00FF;
+            --color-dark-bg: #0A0A0A;
+            --color-text-light: #E0E0E0;
             --color-bg: #1b1c22;
             --color-surface: #232631;
             --color-surface-soft: #2d3040;
@@ -35,6 +39,22 @@
 
         body {
             font-family: 'Rajdhani', sans-serif;
+            text-align: center;
+            background-color: var(--color-dark-bg);
+            color: var(--color-text-light);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.05em; /* Espaciado sutil para un look "tech" */
+        }
+        
+        /* Animación de fondo: un sutil resplandor que se mueve */
             background-color: var(--color-bg);
             color: var(--color-text);
             line-height: 1.6;
@@ -43,6 +63,15 @@
 
         body::before {
             content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--color-neon-cyan), var(--color-neon-magenta), var(--color-dark-bg));
+            background-size: 400% 400%;
+            animation: moveGradient 15s ease infinite;
+            opacity: 0.15;
             position: fixed;
             inset: 0;
             background:
@@ -54,6 +83,15 @@
         }
 
         .portfolio-container {
+            width: 90%;
+            max-width: 900px;
+            padding: 40px 20px;
+            background: rgba(15, 15, 15, 0.7);
+            border: 2px solid var(--color-neon-cyan);
+            box-shadow: 0 0 20px var(--color-neon-cyan);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
             width: min(980px, 92vw);
             margin: 30px auto 40px;
             padding: 32px 28px;
@@ -63,19 +101,74 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
         }
 
+        /* Estilo de los títulos principales y secundarios */
+        h1, h2 {
         h1, h2, h3, h4 {
             font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            text-shadow: 0 0 10px var(--color-neon-cyan), 0 0 20px var(--color-neon-cyan);
+            animation: neonGlow 1.5s ease-in-out infinite alternate;
             letter-spacing: 0.08em;
             margin: 0;
         }
+        
 
         h1 {
+            font-size: 3.5rem;
+            margin-bottom: 5px;
+            color: var(--color-neon-magenta);
+            animation: glitch 1.5s infinite;
             font-size: clamp(1.9rem, 4vw, 2.8rem);
             color: var(--color-turquesa);
             margin-bottom: 6px;
         }
 
         h2 {
+            font-size: 2rem;
+            margin-top: 0;
+            color: var(--color-neon-cyan);
+        }
+        
+        /* Efecto de "glitch" en el título principal */
+        @keyframes glitch {
+            0% {
+                text-shadow: 0.05em 0 0 var(--color-neon-cyan), -0.05em -0.025em 0 var(--color-neon-magenta);
+            }
+            14% {
+                text-shadow: 0.05em 0 0 var(--color-neon-cyan), -0.05em -0.025em 0 var(--color-neon-magenta);
+            }
+            15% {
+                text-shadow: -0.05em -0.025em 0 var(--color-neon-cyan), 0.05em 0 0 var(--color-neon-magenta);
+            }
+            49% {
+                text-shadow: -0.05em -0.025em 0 var(--color-neon-cyan), 0.05em 0 0 var(--color-neon-magenta);
+            }
+            50% {
+                text-shadow: -0.05em -0.025em 0 var(--color-neon-cyan), 0.05em 0 0 var(--color-neon-magenta);
+            }
+            51% {
+                text-shadow: 0.05em 0 0 var(--color-neon-cyan), -0.05em -0.025em 0 var(--color-neon-magenta);
+            }
+            100% {
+                text-shadow: 0.05em 0 0 var(--color-neon-cyan), -0.05em -0.025em 0 var(--color-neon-magenta);
+            }
+        }
+
+        @keyframes neonGlow {
+            from {
+                text-shadow: 0 0 10px var(--color-neon-cyan), 0 0 20px var(--color-neon-cyan);
+            }
+            to {
+                text-shadow: 0 0 20px var(--color-neon-magenta), 0 0 30px var(--color-neon-magenta);
+            }
+        }
+        
+        /* Estilo para el resto del texto */
+        p, li {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
             font-size: clamp(1.1rem, 2.5vw, 1.6rem);
             color: var(--color-muted);
             margin-bottom: 22px;
@@ -98,6 +191,8 @@
             font-size: 1.08rem;
             margin: 8px 0 14px;
         }
+        
+        /* Estilos de las listas (sin viñetas, con espaciado) */
 
         .lead {
             background: var(--color-surface-soft);
@@ -109,6 +204,9 @@
         ul {
             list-style: none;
             padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             margin: 0;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -116,6 +214,28 @@
         }
 
         li {
+            margin: 10px;
+            padding: 10px 20px;
+            border: 1px solid var(--color-neon-cyan);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background-color: var(--color-neon-cyan);
+            color: var(--color-dark-bg);
+            box-shadow: 0 0 15px var(--color-neon-cyan);
+            transform: scale(1.05);
+        }
+        
+        /* Estilo para los subtítulos de sección */
+        h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-top: 40px;
+            text-transform: uppercase;
+            color: var(--color-neon-cyan);
             background: #262a38;
             border: 1px solid var(--color-border);
             border-radius: 10px;
@@ -130,9 +250,15 @@
             border: 1px solid var(--color-border);
             background: rgba(184, 163, 74, 0.12);
         }
+        
+        /* Línea de división de estilo futurista */
 
         hr {
             border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-neon-magenta), transparent);
+            margin: 40px 0;
+            box-shadow: 0 0 10px var(--color-neon-magenta);
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--color-purpura), transparent);
             margin: 24px 0;
@@ -144,14 +270,17 @@
     </style>
 </head>
 <body>
+    <div class="portfolio-container">
     <main class="portfolio-container">
         <h1>Americus Amadeus Dodge</h1>
         <h2>Portafolio de Ciberseguridad</h2>
 
+        <p>Administro SQL, LINUX, Analizadores de protocolos de redes SNIFFERS) y trabajo para mantener los principios básicos de seguridad Cibernética, entre ellos, la **confidencialidad**, **integridad**, y **disponibilidad** (CID), así como una sólida formación en ética dentro de las organizaciones.</p>
         <p class="lead">Perfil técnico orientado a la ciberseguridad, con dominio operativo en SQL, Linux y análisis de tráfico de red para proteger la <strong>confidencialidad</strong>, <strong>integridad</strong> y <strong>disponibilidad</strong> de los activos digitales.</p>
 
         <hr>
 
+        <h3>Inventario de Fortalezas</h3>
         <h3>🧠 Inventario de Fortalezas (Aptitudes)</h3>
 
         <h4>🔐 Núcleo técnico en ciberseguridad</h4>
@@ -183,6 +312,15 @@
 
         <h4>🎨 Fortaleza diferencial (muy importante)</h4>
         <ul>
+            <li>Percepción</li>
+            <li>Pensamiento Crítico</li>
+            <li>Intuición</li>
+            <li>Introversión / Pensamiento Abstracto</li>
+            <li>Inteligencia Emocional</li>
+            <li>Colaboración</li>
+            <li>Resolución de problemas</li>
+            <li>Comunicación</li>
+            <li>Uso de la herramienta SIEM (Security Information and Event Management) y otras herramientas para identificar y mitigar amenazas, riesgos y/o vulnerabilidades.</li>
             <li>Visualización compleja de sistemas (pensamiento espacial).</li>
             <li>Modelado 3D y abstracción estructural.</li>
             <li>Capacidad de representar arquitecturas como “objetos mentales”.</li>
@@ -216,6 +354,7 @@
 
         <hr>
 
+        <h3>Valores</h3>
         <h3>🧭 Valores (Derivados del CV)</h3>
 
         <h4>⚖️ Ética y responsabilidad</h4>
@@ -227,6 +366,11 @@
 
         <h4>🔍 Búsqueda de la verdad</h4>
         <ul>
+            <li>Honestidad</li>
+            <li>Paciencia</li>
+            <li>Disciplina</li>
+            <li>Generosidad</li>
+            <li>Diligencia</li>
             <li>Mencionada directamente como motor personal.</li>
             <li>Aplicada tanto en arte como en seguridad.</li>
         </ul>
@@ -251,6 +395,8 @@
 
         <hr>
 
+        <h3>Intereses en el Campo de la Ciberseguridad</h3>
+        <p>Desarrollar soluciones efectivas y métodos de Identificación contra amenazas de seguridad cibernética y soluciones que puedan impactar de forma positiva en una organización y en las personas a las que esta sirve.</p>
         <h3>🔎 Intereses en el campo de la ciberseguridad</h3>
 
         <h4>🔴 Seguridad ofensiva</h4>
@@ -292,6 +438,8 @@
 
         <hr>
 
+        <h3>Targets e Intereses</h3>
+        <p>Colaborar con todo tipo de organizaciones en general del Sector Terciario, Gobierno y entusiastas de la ciberseguridad en general.</p>
         <h3>🎯 Targets profesionales (a donde apuntas)</h3>
 
         <h4>🎯 Roles ideales (alineados a tu perfil real)</h4>
@@ -321,6 +469,8 @@
 
         <hr>
 
+        <h3>Motivación</h3>
+        <p>Alinear una ética y valores propios a la misión y la visión de mis empleadores para enriquecer su organización y aportar valor a sus proyectos, buscando un beneficio común de la experiencia obtenida.</p>
         <h3>🔥 Intereses personales (implícitos)</h3>
         <ul>
             <li>Cosmología → pensamiento abstracto profundo.</li>
@@ -329,6 +479,7 @@
             <li>Tecnología → herramienta para impacto real.</li>
         </ul>
 
+    </div>
         <p class="muted">Diseño visual renovado con una paleta mate opaca (turquesa, púrpura y amarillo), priorizando legibilidad, estructura y navegación fluida mediante desplazamiento vertical estándar del navegador.</p>
     </main>
 </body>

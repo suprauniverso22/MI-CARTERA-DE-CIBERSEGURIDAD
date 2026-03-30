@@ -14,6 +14,28 @@
             --color-neon-magenta: #FF00FF;
             --color-dark-bg: #0A0A0A;
             --color-text-light: #E0E0E0;
+            --color-bg: #1b1c22;
+            --color-surface: #232631;
+            --color-surface-soft: #2d3040;
+            --color-text: #ece9df;
+            --color-muted: #c9c3b1;
+            --color-turquesa: #3b8f97;
+            --color-purpura: #6f5c8f;
+            --color-amarillo: #b8a34a;
+            --color-border: #4a5166;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            scroll-behavior: smooth;
+            overflow-y: auto;
+            overflow-x: hidden;
         }
 
         body {
@@ -34,6 +56,12 @@
         }
         
         /* Animación de fondo: un sutil resplandor que se mueve */
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            letter-spacing: 0.03em;
+        }
+
         body::before {
             content: '';
             position: absolute;
@@ -45,6 +73,13 @@
             background-size: 400% 400%;
             animation: moveGradient 15s ease infinite;
             opacity: 0.15;
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(59, 143, 151, 0.22), transparent 42%),
+                radial-gradient(circle at 82% 18%, rgba(111, 92, 143, 0.2), transparent 40%),
+                radial-gradient(circle at 50% 88%, rgba(184, 163, 74, 0.18), transparent 44%);
+            pointer-events: none;
             z-index: -1;
         }
 
@@ -65,22 +100,36 @@
             border-radius: 10px;
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
+            width: min(980px, 92vw);
+            margin: 30px auto 40px;
+            padding: 32px 28px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
         }
 
         /* Estilo de los títulos principales y secundarios */
         h1, h2 {
+        h1, h2, h3, h4 {
             font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
             letter-spacing: 0.2em;
             text-shadow: 0 0 10px var(--color-neon-cyan), 0 0 20px var(--color-neon-cyan);
             animation: neonGlow 1.5s ease-in-out infinite alternate;
+            letter-spacing: 0.08em;
+            margin: 0;
         }
         
+
         h1 {
             font-size: 3.5rem;
             margin-bottom: 5px;
             color: var(--color-neon-magenta);
             animation: glitch 1.5s infinite;
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+            color: var(--color-turquesa);
+            margin-bottom: 6px;
         }
 
         h2 {
@@ -128,15 +177,48 @@
             font-size: 1.2rem;
             line-height: 1.6;
             text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            color: var(--color-muted);
+            margin-bottom: 22px;
+        }
+
+        h3 {
+            margin-top: 26px;
+            margin-bottom: 14px;
+            color: var(--color-amarillo);
+            font-size: clamp(1rem, 2.2vw, 1.35rem);
+        }
+
+        h4 {
+            color: var(--color-turquesa);
+            margin: 16px 0 10px;
+            font-size: clamp(0.95rem, 2vw, 1.15rem);
+        }
+
+        p {
+            font-size: 1.08rem;
+            margin: 8px 0 14px;
         }
         
         /* Estilos de las listas (sin viñetas, con espaciado) */
+
+        .lead {
+            background: var(--color-surface-soft);
+            border-left: 4px solid var(--color-purpura);
+            padding: 12px 16px;
+            border-radius: 10px;
+        }
+
         ul {
             list-style: none;
             padding: 0;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 10px;
         }
 
         li {
@@ -162,29 +244,81 @@
             margin-top: 40px;
             text-transform: uppercase;
             color: var(--color-neon-cyan);
+            background: #262a38;
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 10px 12px;
+            color: var(--color-text);
+        }
+
+        .highlight-box {
+            margin-top: 14px;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid var(--color-border);
+            background: rgba(184, 163, 74, 0.12);
         }
         
         /* Línea de división de estilo futurista */
+
         hr {
             border: none;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--color-neon-magenta), transparent);
             margin: 40px 0;
             box-shadow: 0 0 10px var(--color-neon-magenta);
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-purpura), transparent);
+            margin: 24px 0;
         }
 
+        .muted {
+            color: var(--color-muted);
+        }
     </style>
 </head>
 <body>
     <div class="portfolio-container">
+    <main class="portfolio-container">
         <h1>Americus Amadeus Dodge</h1>
         <h2>Portafolio de Ciberseguridad</h2>
 
         <p>Administro SQL, LINUX, Analizadores de protocolos de redes SNIFFERS) y trabajo para mantener los principios básicos de seguridad Cibernética, entre ellos, la **confidencialidad**, **integridad**, y **disponibilidad** (CID), así como una sólida formación en ética dentro de las organizaciones.</p>
+        <p class="lead">Perfil técnico orientado a la ciberseguridad, con dominio operativo en SQL, Linux y análisis de tráfico de red para proteger la <strong>confidencialidad</strong>, <strong>integridad</strong> y <strong>disponibilidad</strong> de los activos digitales.</p>
 
         <hr>
 
         <h3>Inventario de Fortalezas</h3>
+        <h3>🧠 Inventario de Fortalezas (Aptitudes)</h3>
+
+        <h4>🔐 Núcleo técnico en ciberseguridad</h4>
+        <ul>
+            <li>Evaluación de vulnerabilidades (scoping, ejecución, reporting).</li>
+            <li>Pentesting en entornos controlados (Kali Linux, WebSploit).</li>
+            <li>Operaciones SOC (Security Operations Center).</li>
+            <li>Manejo de SIEM (Splunk, Chronicle).</li>
+            <li>Respuesta a incidentes (IR lifecycle + playbooks).</li>
+            <li>Hardening de sistemas y redes.</li>
+            <li>Análisis de tráfico y protocolos (TCP/IP, DNS, ICMP).</li>
+        </ul>
+
+        <h4>⚙️ Capacidades técnicas complementarias</h4>
+        <ul>
+            <li>Programación en Python (automatización, parsing, scripts de seguridad).</li>
+            <li>Manejo de SQL (consultas, protección contra SQLi).</li>
+            <li>Administración de Linux (CLI, permisos, hardening).</li>
+            <li>Conocimiento de bajo nivel (binario, lógica computacional).</li>
+            <li>Fundamentos de criptografía (hashing, integridad).</li>
+        </ul>
+
+        <h4>🤖 Capacidades en IA aplicadas</h4>
+        <ul>
+            <li>Prompt Engineering (optimización de flujos).</li>
+            <li>Uso de IA para análisis e investigación técnica.</li>
+            <li>Comprensión de IA aplicada a ciberseguridad (ofensiva y defensiva).</li>
+        </ul>
+
+        <h4>🎨 Fortaleza diferencial (muy importante)</h4>
         <ul>
             <li>Percepción</li>
             <li>Pensamiento Crítico</li>
@@ -195,34 +329,166 @@
             <li>Resolución de problemas</li>
             <li>Comunicación</li>
             <li>Uso de la herramienta SIEM (Security Information and Event Management) y otras herramientas para identificar y mitigar amenazas, riesgos y/o vulnerabilidades.</li>
+            <li>Visualización compleja de sistemas (pensamiento espacial).</li>
+            <li>Modelado 3D y abstracción estructural.</li>
+            <li>Capacidad de representar arquitecturas como “objetos mentales”.</li>
+            <li>Detección de patrones no evidentes.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <p><strong>👉 Esto es extremadamente valioso en:</strong></p>
+            <ul>
+                <li>Threat modeling.</li>
+                <li>Attack surface mapping.</li>
+                <li>Análisis de comportamiento anómalo.</li>
+            </ul>
+        </div>
+
+        <h4>🧩 Habilidades cognitivas clave</h4>
+        <ul>
+            <li>Pensamiento lateral (out-of-the-box).</li>
+            <li>Alta capacidad de abstracción.</li>
+            <li>Curiosidad estructurada.</li>
+            <li>Resolución de problemas complejos.</li>
+        </ul>
+
+        <h4>🗣️ Soft skills</h4>
+        <ul>
+            <li>Comunicación técnica → no técnica.</li>
+            <li>Adaptabilidad (trayectoria laboral diversa).</li>
+            <li>Autodidactismo demostrado.</li>
+            <li>Resiliencia operativa.</li>
         </ul>
 
         <hr>
 
         <h3>Valores</h3>
+        <h3>🧭 Valores (Derivados del CV)</h3>
+
+        <h4>⚖️ Ética y responsabilidad</h4>
+        <ul>
+            <li>Enfoque explícito en hacking ético.</li>
+            <li>Respeto por marcos legales (GDPR, HIPAA, PCI DSS).</li>
+            <li>Uso responsable del conocimiento ofensivo.</li>
+        </ul>
+
+        <h4>🔍 Búsqueda de la verdad</h4>
         <ul>
             <li>Honestidad</li>
             <li>Paciencia</li>
             <li>Disciplina</li>
             <li>Generosidad</li>
             <li>Diligencia</li>
+            <li>Mencionada directamente como motor personal.</li>
+            <li>Aplicada tanto en arte como en seguridad.</li>
+        </ul>
+
+        <h4>🛡️ Protección y propósito</h4>
+        <ul>
+            <li>Orientación a proteger infraestructuras críticas.</li>
+            <li>Motivación por preservar sistemas que sostienen conocimiento humano.</li>
+        </ul>
+
+        <h4>🧠 Rigor intelectual</h4>
+        <ul>
+            <li>Interés en marcos formales (NIST CSF, RMF).</li>
+            <li>Disciplina técnica + conceptual.</li>
+        </ul>
+
+        <h4>🎯 Excelencia creativa</h4>
+        <ul>
+            <li>No te limitas a ejecutar: reinterpretas problemas.</li>
+            <li>Buscas soluciones no convencionales.</li>
         </ul>
 
         <hr>
 
         <h3>Intereses en el Campo de la Ciberseguridad</h3>
         <p>Desarrollar soluciones efectivas y métodos de Identificación contra amenazas de seguridad cibernética y soluciones que puedan impactar de forma positiva en una organización y en las personas a las que esta sirve.</p>
+        <h3>🔎 Intereses en el campo de la ciberseguridad</h3>
+
+        <h4>🔴 Seguridad ofensiva</h4>
+        <ul>
+            <li>Pentesting.</li>
+            <li>Ethical hacking.</li>
+            <li>Exploración de vectores de ataque.</li>
+            <li>Entornos controlados de explotación.</li>
+        </ul>
+
+        <h4>🔵 Seguridad defensiva</h4>
+        <ul>
+            <li>SOC operations.</li>
+            <li>Detección de amenazas.</li>
+            <li>Respuesta a incidentes.</li>
+            <li>Hardening.</li>
+        </ul>
+
+        <h4>🟡 Gobernanza y riesgo</h4>
+        <ul>
+            <li>NIST frameworks.</li>
+            <li>Risk management.</li>
+            <li>Compliance.</li>
+        </ul>
+
+        <h4>🟣 Áreas avanzadas emergentes</h4>
+        <ul>
+            <li>IA aplicada a ciberseguridad.</li>
+            <li>Automatización de defensa.</li>
+            <li>Análisis de datos de seguridad.</li>
+        </ul>
+
+        <h4>🧠 Intersección única (tu punto fuerte)</h4>
+        <ul>
+            <li>Visualización de amenazas.</li>
+            <li>Seguridad + arte + abstracción.</li>
+            <li>Modelado conceptual de ataques.</li>
+        </ul>
 
         <hr>
 
         <h3>Targets e Intereses</h3>
         <p>Colaborar con todo tipo de organizaciones en general del Sector Terciario, Gobierno y entusiastas de la ciberseguridad en general.</p>
+        <h3>🎯 Targets profesionales (a donde apuntas)</h3>
+
+        <h4>🎯 Roles ideales (alineados a tu perfil real)</h4>
+        <ul>
+            <li>SOC Analyst (Nivel 1–2).</li>
+            <li>Junior Penetration Tester.</li>
+            <li>Cybersecurity Analyst.</li>
+            <li>Threat Analyst (con enfoque visual/analítico).</li>
+            <li>Security Automation Specialist (Python + SIEM).</li>
+        </ul>
+
+        <h4>🚀 Roles diferenciales (donde puedes destacar más que otros)</h4>
+        <ul>
+            <li>Threat Intelligence Visual Analyst.</li>
+            <li>Security Researcher con enfoque creativo.</li>
+            <li>Red Team (a mediano plazo).</li>
+            <li>Cybersecurity + AI Specialist.</li>
+        </ul>
+
+        <h4>🧬 Nichos donde tu perfil es raro (y valioso)</h4>
+        <ul>
+            <li>Visualización de ciberataques.</li>
+            <li>UX aplicado a seguridad.</li>
+            <li>Modelado conceptual de amenazas.</li>
+            <li>Educación en ciberseguridad (explicación visual).</li>
+        </ul>
 
         <hr>
 
         <h3>Motivación</h3>
         <p>Alinear una ética y valores propios a la misión y la visión de mis empleadores para enriquecer su organización y aportar valor a sus proyectos, buscando un beneficio común de la experiencia obtenida.</p>
+        <h3>🔥 Intereses personales (implícitos)</h3>
+        <ul>
+            <li>Cosmología → pensamiento abstracto profundo.</li>
+            <li>Espiritualidad → búsqueda de significado.</li>
+            <li>Arte → expresión simbólica compleja.</li>
+            <li>Tecnología → herramienta para impacto real.</li>
+        </ul>
 
     </div>
+        <p class="muted">Diseño visual renovado con una paleta mate opaca (turquesa, púrpura y amarillo), priorizando legibilidad, estructura y navegación fluida mediante desplazamiento vertical estándar del navegador.</p>
+    </main>
 </body>
 </html>
